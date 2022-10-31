@@ -427,11 +427,11 @@ Side probability:
   Short: 71 trades, pct: 73.96%
 ```
 ###webui界面
-![输入图片说明](https://github.com/hlevel/tidetrader/raw/master/screenshot/tidetrader_1.jpg "登录")
+![输入图片说明](https://oscimg.oschina.net/oscnet/up-deb4a72eabab80665c02387df2ac516b6a4.jpg "登录")
 
-![输入图片说明](https://github.com/hlevel/tidetrader/raw/master/screenshot/tidetrader_2.jpg "首页")
+![输入图片说明](https://oscimg.oschina.net/oscnet/up-bb3a62ad2c4b119fa4cc62fb6fbb71712e6.jpg "首页")
 
-![输入图片说明](https://github.com/hlevel/tidetrader/raw/master/screenshot/tidetrader_3.jpg "详情")
+![输入图片说明](https://oscimg.oschina.net/oscnet/up-46b245e2e40352157ec12961cda334dda55.jpg "详情")
 
 ### 感谢
 * [cassandre-trading-bot](https://github.com/cassandre-tech/cassandre-trading-bot)
