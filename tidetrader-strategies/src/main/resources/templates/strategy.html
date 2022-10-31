@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="common/header :: header(~{::title},~{::link},~{::style})">
+	<title th:text="${strategyName}" >strategy</title>
+</head>
+<link rel="stylesheet" href="https://code.highcharts.com/css/highcharts.css" />
+<body>
+<nav th:replace="common/header :: nav(~{::tab})"></nav>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body" style="line-height: 0.5" >
+					<h4 class="card-title" th:text="${strategyName}"></h4><br/>
+					<p class="card-text"><mark class="font-weight-bold">CurrencyPair</mark>: <label th:text="${currencyPairs}" ></label></p>
+					<p class="card-text"><mark class="font-weight-bold">Total Gains</mark>: <label th:text="${gainTotal}" ></label></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="row" id="highchartsBar">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<figure class="highcharts-figure">
+						<div id="container-bar"></div>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-12" >
+			<h6 class="card-title"  th:text="${tabTickers.title}"  >Latest Tickers</h6>
+			<table id="tickers" class="table table-condensed table-hover table-responsive-sm  table_morecondensed">
+				<thead>
+				<tr>
+					<th th:each="col : ${tabTickers.colNames}" th:text="${col}" ></th>
+				</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-12" >
+			<h6 class="card-title" th:text="${tabBalances.title}" >Latest Balances</h6>
+			<table id="balances" class="table table-condensed table-hover table-responsive-sm  table_morecondensed" >
+				<thead>
+				<tr>
+					<th th:each="col : ${tabBalances.colNames}" th:text="${col}" ></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:each="data : ${tabBalances.datas}" >
+					<td th:each="d : ${data}" th:text="${d}" ></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-12" >
+			<h6 class="card-title" th:text="${tabOpenedPositions.title}" >Opened Positions</h6>
+			<table id="openedPositions" class="table table-condensed table-hover table-responsive-sm  table_morecondensed">
+				<thead>
+				<tr>
+					<th th:each="col : ${tabOpenedPositions.colNames}" th:text="${col}" ></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:each="data : ${tabOpenedPositions.datas}" >
+					<td th:each="d : ${data}" th:utext="${d}" ></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-12" >
+			<h6 class="card-title" th:text="${tabClosedPositions.title}" >Closed Positions</h6>
+			<table id="closedPositions" class="table table-condensed table-hover table-responsive-sm  table_morecondensed">
+				<thead>
+				<tr>
+					<th th:each="col : ${tabClosedPositions.colNames}" th:text="${col}" ></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:each="data : ${tabClosedPositions.datas}" >
+					<td th:each="d : ${data}" th:text="${d}" ></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+</body>
+<script th:replace="common/footer :: script"></script>
+<footer th:replace="common/footer :: footer"></footer>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+
+<script language="JavaScript" th:inline="javascript">
+	$(document).ready(function() {
+		var title = {
+			text: 'Cumulative Income'
+		};
+		var subtitle = {
+			text: 'Source: TideTrader'
+		};
+
+		var xAxis = {
+			categories: [
+				/*<![CDATA[*/
+				/*[# th:each="time : ${gainTimes}"]*/
+					[[${time}]],
+				/*[/]*/
+				/*]]>*/
+			]
+		};
+		var yAxis = {
+			title: {
+				text: [[${strategyName}]]
+			}
+		};
+		var plotOptions = {
+			line: {
+				dataLabels: {
+					enabled: true
+				},
+				enableMouseTracking: false
+			}
+		};
+		var series= [{
+			name: [[${gainUnit}]],
+			data: [[${gainValues}]]
+		}
+		];
+
+		var json = {};
+
+		json.title = title;
+		//json.subtitle = subtitle;
+		json.xAxis = xAxis;
+		json.yAxis = yAxis;
+		json.series = series;
+		json.plotOptions = plotOptions;
+
+		if(xAxis.categories.length > 0) {
+			$('#container-bar').highcharts(json);
+		} else {
+			$('#highchartsBar').hide();
+		}
+	});
+</script>
+
+<script type="text/javascript" th:inline="javascript" >
+	$(document).ready(function() {
+
+		$('#tickers').DataTable({
+			"sAjaxSource": "/strategy/tickers/" + [[${strategyClassName}]],
+			"bFilter" : false,
+			"bPaginate" : false,
+			"info" : false,
+			"sAjaxDataProp": "",
+			"aoColumns": [
+				/*<![CDATA[*/
+				/*[# th:each="col : ${tabTickers.colNames}"]*/
+				{ "mData": [[${col}]] },
+				/*[/]*/
+				/*]]>*/
+			],
+		});
+
+		$('#openedPositions').DataTable({
+			"sAjaxSource": "/strategy/openedPositions/" + [[${strategyClassName}]],
+			"bFilter" : false,
+			"bPaginate" : false,
+			"info" : false,
+			"sAjaxDataProp": "",
+			"aoColumns": [
+				/*<![CDATA[*/
+				/*[# th:each="col : ${tabOpenedPositions.colNames}"]*/
+				{ "mData": [[${col}]] },
+				/*[/]*/
+				/*]]>*/
+			],
+		});
+
+		$('#closedPositions').DataTable({
+			"bFilter" : true,
+			"bPaginate" : true,
+			"info" : true,
+			"bLengthChange" : false
+		});
+
+		$.fn.dataTable.ext.errMode = 'none';
+	});
+
+	setInterval("$('#tickers').DataTable().ajax.reload();$('#openedPositions').DataTable().ajax.reload();",[[${ratesTicker}]]);
+
+	function closePostion(href) {
+		if(confirm("Close postion?")) {
+			$.getJSON(href, function (data) {
+				if(data.code == "ok") {
+					setTimeout("window.location.reload();",1000);
+				}
+			});
+		}
+	}
+
+</script>
+
+
+</html>

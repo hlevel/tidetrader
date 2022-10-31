@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="common/header :: header(~{::title},~{::link},~{::style})">
+	<title>Dashboard</title>
+</head>
+<body>
+<nav th:replace="common/header :: nav(~{::tab})"></nav>
+<div class="container">
+	<div style="text-align: center">
+		<h6>
+			<b>24 Hour Latest Price</b>
+		</h6>
+	</div>
+	<table id="ticker24hTab" class="table table-condensed table-hover table-responsive-sm  table_morecondensed width=80%">
+		<thead>
+		<tr>
+			<th>CurrencyPair</th>
+			<th>Open</th>
+			<th>Last</th>
+			<th>High</th>
+			<th>Low</th>
+			<th>Vwap</th>
+			<th>Volume</th>
+			<th>QuoteVolume</th>
+			<th>PercentageChange</th>
+		</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+</div>
+
+</body>
+<script th:replace="common/footer :: script"></script>
+<footer th:replace="common/footer :: footer"></footer>
+<!--
+<script th:src="@{/js/bootstrap-table-auto-refresh.min.js}" charset="utf-8"></script>
+-->
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$('#ticker24hTab').DataTable({
+			"sAjaxSource": "[[@{/ticker24h}]]",
+			"sAjaxDataProp": "",
+			"aoColumns": [
+				{
+					"targets" : -1,
+					"mData" : "currencyPair",
+					"defaultContent" : '',
+					"render": function ( data ) {
+						return '' + data.baseCurrency.code + '_' + data.quoteCurrency.code + '</a>';
+					}
+				},
+				{ "mData": "open" },
+				{ "mData": "last" },
+				{ "mData": "high" },
+				{ "mData": "low" },
+				{ "mData": "vwap" },
+				{ "mData": "volume" },
+				{ "mData": "quoteVolume" },
+				{
+					"mData" : "percentageChange",
+					"defaultContent" : '',
+					"render": function ( data ) {
+						if(data > 0) {
+							return '<font color="green">+' + data  + '%</font>';
+						}
+						return '<font color="red">' + data  + '%</font>';
+					}
+				}
+			],
+			"lengthMenu" : [ [ 50, 100, -1 ], [ 50, 100, "All" ] ]
+		});
+		$.fn.dataTable.ext.errMode = 'none';
+	});
+
+	setInterval("$('#ticker24hTab').DataTable().ajax.reload();",[[${ratesTicker}]]);
+
+</script>
+
+</html>

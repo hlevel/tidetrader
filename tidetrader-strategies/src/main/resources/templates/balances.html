@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="common/header :: header(~{::title},~{::link},~{::style})">
+	<title>Accounts</title>
+</head>
+<body>
+<nav th:replace="common/header :: nav(~{::tab})"></nav>
+<div class="container">
+	<div class="col-md-12" >
+		<h6 class="card-title" >All Balances</h6>
+		<table id="balances" class="table table-condensed table-hover table-responsive-sm  table_morecondensed">
+			<thead>
+				<th>Currency</th>
+				<th>Available</th>
+				<th>Frozen</th>
+				<th>Withdrawing</th>
+				<th>Total</th>
+			</thead>
+			<tbody>
+			<tr th:each="balance : ${balances}" >
+				<td th:text="${balance.currency}" ></td>
+				<td th:text="${balance.available.stripTrailingZeros.toPlainString}" ></td>
+				<td th:text="${balance.frozen.stripTrailingZeros.toPlainString}" ></td>
+				<td th:text="${balance.withdrawing.stripTrailingZeros.toPlainString}" ></td>
+				<td th:text="${balance.total.stripTrailingZeros.toPlainString}" ></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+</body>
+<script th:replace="common/footer :: script"></script>
+<footer th:replace="common/footer :: footer"></footer>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#balances').DataTable({
+			"bFilter" : false,
+			"bPaginate" : false,
+			"info" : false
+		});
+	});
+</script>
+
+
+</html>

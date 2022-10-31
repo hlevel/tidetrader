@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<!-- Parent -->
+	<parent>
+		<groupId>tide.trader</groupId>
+		<artifactId>tidetrader</artifactId>
+		<version>${revision}</version>
+	</parent>
+
+	<!-- =========================================================================================================== -->
+	<!-- Project information -->
+	<artifactId>tidetrader-strategies</artifactId>
+	<packaging>jar</packaging>
+	<name>tidetrader-strategies</name>
+	<!-- =========================================================================================================== -->
+
+	<!-- =========================================================================================================== -->
+	<!-- Project configuration -->
+
+	<!-- =========================================================================================================== -->
+
+	<!-- =========================================================================================================== -->
+	<!-- Dependencies -->
+	<dependencies>
+		<dependency>
+			<groupId>tide.trader</groupId>
+			<artifactId>tidetrader-autoconfigure</artifactId>
+			<version>${revision}</version>
+		</dependency>
+		<!--
+		<dependency>
+			<groupId>tide.trader</groupId>
+			<artifactId>tidetrader-graphql</artifactId>
+			<version>${revision}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>kotlin-stdlib-jdk7</artifactId>
+					<groupId>org.jetbrains.kotlin</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		-->
+		<dependency>
+			<groupId>tide.trader</groupId>
+			<artifactId>tidetrader-test</artifactId>
+			<version>${revision}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Spring dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+		<dependency>
+			<groupId>com.netflix.graphql.dgs</groupId>
+			<artifactId>graphql-dgs-spring-boot-starter</artifactId>
+			<version>${graphql-dgs.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>reactor-core</artifactId>
+					<groupId>io.projectreactor</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.netflix.graphql.dgs</groupId>
+			<artifactId>graphql-dgs-extended-scalars</artifactId>
+			<version>${graphql-dgs.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>tide.trader</groupId>
+			<artifactId>tidetrader-xchange-binance</artifactId>
+			<version>${tidetrader.xchange.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>tide.trader</groupId>
+			<artifactId>tidetrader-xchange-simulated</artifactId>
+			<version>${tidetrader.xchange.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ta4j</groupId>
+			<artifactId>ta4j-examples</artifactId>
+			<version>${ta4j.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>${hsqldb.version}</version>
+		</dependency>
+
+		<!-- 模板引擎 Thymeleaf 依赖 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+		<!--对Thymeleaf添加Spring Security标签支持-->
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>3.5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery-ui</artifactId>
+			<version>1.12.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>4.5.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>font-awesome</artifactId>
+			<version>5.15.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>datatables</artifactId>
+			<version>1.10.21</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>popper.js</artifactId>
+			<version>2.5.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>webjars-locator</artifactId>
+			<version>0.40</version>
+		</dependency>
+
+		<!-- Tests
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency> -->
+	</dependencies>
+	<!-- =========================================================================================================== -->
+
+	<profiles>
+		<profile>
+			<id>development</id>
+			<properties>
+				<profileActive>development</profileActive>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>zkang</id>
+			<properties>
+				<profileActive>zkang</profileActive>
+			</properties>
+		</profile>
+		<profile>
+			<id>chenf</id>
+			<properties>
+				<profileActive>chenf</profileActive>
+			</properties>
+		</profile>
+	</profiles>
+
+	<!-- =========================================================================================================== -->
+	<!-- Build configuration -->
+	<build>
+		<finalName>${project.artifactId}-${profileActive}-${project.version}</finalName>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>META-INF/**</include>
+					<include>schema/**</include>
+					<include>static/**</include>
+					<include>templates/**</include>
+					<include>**/*.xml</include>
+					<include>application.properties</include>
+					<include>application-${profileActive}.properties</include>
+				</includes>
+			</resource>
+		</resources>
+		<!-- Plugins -->
+		<plugins>
+			<!-- Spring boot -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring.version}</version>
+				<configuration>
+					<fork>true</fork>
+					<mainClass>tide.trader.bot.TideTraderApplication</mainClass>
+					<!--<layout>ZIP</layout>-->
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+						<!-- 分离出代码包
+						<configuration>
+							<classifier>exec</classifier>
+						</configuration>
+						 -->
+					</execution>
+				</executions>
+			</plugin>
+			<!-- Surefire -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.2</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>2.22.2</version>
+			</plugin>
+		</plugins>
+	</build>
+	<!-- =========================================================================================================== -->
+
+	<!-- =========================================================================================================== -->
+	<!-- Allow snapshot -->
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+	<!-- =========================================================================================================== -->
+</project>

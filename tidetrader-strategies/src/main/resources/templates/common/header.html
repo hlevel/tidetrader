@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header(title, link, style)">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title th:replace="${title}" ></title>
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+	<link rel="stylesheet" th:href="@{/webjars/datatables/css/jquery.dataTables.min.css}">
+	<link rel="stylesheet" th:href="@{/css/main.css}" >
+	<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
+
+	<th:block th:if="${link != null}">
+		<th:block th:replace="${link}"></th:block>
+	</th:block>
+
+	<th:block th:if="${style != null}">
+		<th:block th:replace="${style}"></th:block>
+	</th:block>
+</head>
+<body >
+<nav th:fragment="nav(tab)" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark py-0">
+	<a class="nav-link" th:href="@{/}"><span class="sr-only">(current)</span> </a>
+	<a class="navbar-brand" th:href="@{/}"><i class="fas fa-home"></i>TideTrader</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarCollapse">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" th:href="@{/}">Dashboard<span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item dropdown active">
+				<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Strategies</a>
+				<div class="dropdown-menu" th:each="s : ${strategys}">
+					<a class="dropdown-item" th:href="@{'/strategy/'+${s.strategyId}}" th:text="${s.name}">Strategy</a>
+				</div>
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link" th:href="@{/balances}">Balances <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link" target="_blank" style="color:darkgoldenrod;font-size: .2em !important" th:href="@{/graphiql}">Graphiql</a>
+			</li>
+		</ul>
+		<a th:href="@{/logout}" class="btn btn-sm btn-danger btn-rounded" role="button" aria-pressed="true"><i class="fas fa-sign-out-alt"> </i></a>
+	</div>
+</nav>
+
+
+</body>

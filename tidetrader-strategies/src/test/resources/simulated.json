@@ -1,0 +1,73 @@
+{
+  "currency_pairs": {
+    "BTC/USDT": {
+      "base_scale": 4,
+      "price_scale": 2,
+      "min_amount": 0.0001,
+      "trading_fee": 0.1
+    },
+    "LTC/USDT": {
+      "base_scale": 2,
+      "price_scale": 2,
+      "min_amount": 0.01,
+      "trading_fee": 0.1
+    },
+    "XRP/USDT": {
+      "base_scale": 1,
+      "price_scale": 2,
+      "min_amount": 5,
+      "trading_fee": 0.1
+    },
+    "BNB/USDT": {
+      "base_scale": 2,
+      "price_scale": 2,
+      "min_amount": 0.01,
+      "trading_fee": 0.1
+    },
+    "ADA/USDT": {
+      "base_scale": 1,
+      "price_scale": 2,
+      "min_amount": 5,
+      "trading_fee": 0.1
+    },
+    "ETH/USDT": {
+      "base_scale": 2,
+      "price_scale": 2,
+      "min_amount": 10,
+      "trading_fee": 0.1
+    }
+  },
+  "currencies": {
+    "BTC": {
+      "scale": 8,
+      "withdrawal_fee": 0.2
+    },
+    "LTC": {
+      "scale": 4,
+      "withdrawal_fee": 0.2
+    },
+    "USDT": {
+      "scale": 2,
+      "withdrawal_fee": 0
+    },
+    "XRP": {
+      "scale": 1,
+      "withdrawal_fee": 0.1
+    },
+    "BNB": {
+      "scale": 2,
+      "withdrawal_fee": 0.1
+    },
+    "ETH": {
+      "scale": 2,
+      "withdrawal_fee": 0.01
+    }
+  },
+  "public_rate_limits": [
+    {
+      "calls": 5,
+      "time_span": 1,
+      "time_unit": "SECONDS"
+    }
+  ]
+}

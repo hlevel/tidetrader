@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="script">
+	<script th:src="@{/webjars/jquery/jquery.min.js}"  charset="utf-8"></script>
+	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"  charset="utf-8"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"  charset="utf-8"></script>
+	<script th:src="@{/webjars/datatables/js/jquery.dataTables.min.js}"  charset="utf-8"></script>
+</th:block>
+<footer th:fragment="footer" class="footer bg-light p-0">
+	<!-- <footer class="footer bg-dark text-white p-0"> -->
+	<div class="container ">
+		<span>TideTrader <i class="far fa-copyright"> </i> | <i class="fas fa-envelope"></i> <a href="mailto:hlevel@qq.com" >Contact us</a> | <i class="fab fa-github" aria-hidden="true"></i> <a href="#" >GitHub</a></span>
+	</div>
+</footer>
+</html>

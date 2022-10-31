@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<!-- Parent -->
+    <parent>
+        <groupId>tide.trader</groupId>
+        <artifactId>tidetrader-xchange</artifactId>
+        <version>${tidetrader.xchange.version}</version>
+    </parent>
+    <!-- =========================================================================================================== -->
+    <!-- Project information -->
+    <artifactId>tidetrader-xchange-core</artifactId>
+    <name>tidetrader-xchange-core</name>
+    <!-- =========================================================================================================== -->
+
+
+	<!-- Parent provides default configuration for dependencies -->
+	<dependencies>
+
+        <!-- Third party dependencies -->
+
+        <dependency>
+            <groupId>com.github.mmazi</groupId>
+            <artifactId>rescu</artifactId>
+        </dependency>
+
+        <!--For String Joining, etc. -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+                
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-all</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+</project>

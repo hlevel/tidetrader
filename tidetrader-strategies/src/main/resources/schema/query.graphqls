@@ -1,0 +1,46 @@
+type Query {
+    "Returns configuration."
+    configuration: Configuration
+
+    "Retours all the accounts."
+    accounts: [Account]
+    "Returns the account with the corresponding id."
+    accountByAccountId("Accound id" accountId: String): Account
+
+    "Returns all the strategies."
+    strategies: [Strategy]
+    "Returns the strategy with the corresponding uid."
+    strategy("Strategy uid" uid: Int): Strategy
+    "Returns the strategy with the corresponding strategyId."
+    strategyByStrategyId("Strategy strategyId" strategyId: String): Strategy
+
+    "Returns all the positions"
+    positions: [Position]
+    "Returns the position with the corresponding uid."
+    position("Position uid" uid: Int): Position
+    "Returns all the positions of the specified strategy."
+    positionsByStrategy("Strategy uid" uid: Int): [Position]
+    "Returns all the positions of the specified strategy."
+    positionsByStrategyId("Strategy id" strategyId: String): [Position]
+    "Returns all the positions of the specified strategy and a certain status."
+    positionsByStrategyAndStatus("Strategy uid" uid: Int, "Position status" status: PositionStatus): [Position]
+    "Returns all the positions of the specified strategy and a certain status."
+    positionsByStrategyIdAndStatus("Strategy strategyId" strategyId: String, "Position status" status: PositionStatus): [Position]
+
+    "Returns all the orders."
+    orders: [Order]
+    "Returns the order with the corresponding uid."
+    order("Order uid" uid: Int): Order
+    "Returns the order with the corresponding orderId."
+    orderByOrderId("Order orderId" orderId: String): Order
+
+    "Returns all the trades."
+    trades: [Trade]
+    "Returns the trade with the corresponding uid."
+    trade("Trade uid" uid: Int): Trade
+    "Returns the trade with the corresponding tradeId."
+    tradeByTradeId("Trade tradeId" tradeId: String): Trade
+}
+
+scalar BigDecimal
+scalar DateTime

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="common/header :: header(~{::title},~{::link},~{::style})">
+	<title th:text="${chartTitle}" >chart</title>
+</head>
+<body>
+<nav th:replace="common/header :: nav(~{::tab})"></nav>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<figure class="highcharts-figure">
+						<div id="container-bar"></div>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+</div>
+
+</body>
+<script th:replace="common/footer :: script"></script>
+<footer th:replace="common/footer :: footer"></footer>
+<script src="https://cdn.highcharts.com.cn/highstock/highstock.js"></script>
+<script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+<!--<script src="https://code.highcharts.com.cn/highcharts-plugins/highcharts-zh_CN.js"></script>-->
+
+<script language="JavaScript">
+	$(document).ready(function() {
+		// create the chart
+		Highcharts.setOptions({global: {useUTC: false}})
+		Highcharts.stockChart('container-bar', {
+			rangeSelector : {
+				selected : 1
+			},
+			title : {
+				text : '[[${text}]]'
+			},
+			series : [{
+				type : 'candlestick',
+				name : '[[${currencyPair}]]',
+				data : [[${tickers}]],
+				color: 'red',
+				lineColor: 'red',
+				upColor: 'green',
+				upLineColor: 'green',
+				navigatorOptions: {
+					color: Highcharts.getOptions().colors[0]
+				},
+				dataGrouping : {
+					units : [
+						[
+							'hour', // unit name
+							[1] // allowed multiples
+						], [
+							'month',
+							[1, 2, 3, 4, 6]
+						]
+					]
+				}
+			}]
+		});
+
+		//$.getJSON('https://data.jianshukeji.com/jsonp?a=e&filename=json/aapl-ohlc.json&callback=?', function (data) {
+		//});
+	});
+</script>
+</html>
