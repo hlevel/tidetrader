@@ -19,15 +19,14 @@ tidetrader
 * SpringBoot2.6.4
 * graphql
 
-#### 策略试例
-普通策略
+#### 普通策略
 ```java
 @CassandreStrategy(strategyId = "1", strategyName = "ExampleStrategy")
 public class ExampleStrategy extends BasicCassandreStrategy {
  
 }
 ```
-ta4j指标策略
+#### ta4j指标策略
 ```java
 @CassandreStrategy(strategyId = "2", strategyName = "ExampleTa4jStrategy")
 public class ExampleTa4jStrategy extends BasicTa4jCassandreStrategy {
@@ -74,7 +73,7 @@ public class ExampleTa4jStrategy extends BasicTa4jCassandreStrategy {
     }
 }
 ```
-tradingview 信号策略
+#### tradingview 信号策略
 ```java
 @CassandreStrategy(strategyId = "3", strategyName = "ExampleTVStrategy")
 public class ExampleTVStrategy extends BasicSingalCassandreStrategy {
@@ -426,12 +425,12 @@ Side probability:
   Long: 25 trades, pct: 26.04%
   Short: 71 trades, pct: 73.96%
 ```
-###webui界面
-![输入图片说明](https://github.com/hlevel/tidetrader/raw/master/screenshot/tidetrader_1.jpg "登录")
+#### webui界面
+![输入图片说明](https://oscimg.oschina.net/oscnet/up-deb4a72eabab80665c02387df2ac516b6a4.jpg "登录")
 
-![输入图片说明](https://github.com/hlevel/tidetrader/raw/master/screenshot/tidetrader_2.jpg "首页")
+![输入图片说明](https://oscimg.oschina.net/oscnet/up-bb3a62ad2c4b119fa4cc62fb6fbb71712e6.jpg "首页")
 
-![输入图片说明](https://github.com/hlevel/tidetrader/raw/master/screenshot/tidetrader_3.jpg "详情")
+![输入图片说明](https://oscimg.oschina.net/oscnet/up-46b245e2e40352157ec12961cda334dda55.jpg "详情")
 
 ### 感谢
 * [cassandre-trading-bot](https://github.com/cassandre-tech/cassandre-trading-bot)
