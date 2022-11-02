@@ -172,30 +172,6 @@
 	</dependencies>
 	<!-- =========================================================================================================== -->
 
-	<profiles>
-		<profile>
-			<id>development</id>
-			<properties>
-				<profileActive>development</profileActive>
-			</properties>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-		</profile>
-		<profile>
-			<id>zkang</id>
-			<properties>
-				<profileActive>zkang</profileActive>
-			</properties>
-		</profile>
-		<profile>
-			<id>chenf</id>
-			<properties>
-				<profileActive>chenf</profileActive>
-			</properties>
-		</profile>
-	</profiles>
-
 	<!-- =========================================================================================================== -->
 	<!-- Build configuration -->
 	<build>
