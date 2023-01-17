@@ -396,24 +396,6 @@ Position closed:
  - Short position n°89 of 0.0257 BTC (rules: 10.0 % gain / 5.0 % loss) - Closed - Gains: 7.8642 USDT (1.6 %) - 10 Day line exit  
   + 2022-10-09 08:00:00 DRY_ORDER_000000177 19430 ASK 0.0257 FILLED  
   + 2022-10-10 08:00:00 DRY_ORDER_000000178 19124 BID 0.0257 FILLED
- - Short position n°90 of 0.0262 BTC (rules: 10.0 % gain / 5.0 % loss) - Closed - Gains: -2.4366 USDT (-0.49 %) - 10 Day line exit  
-  + 2022-10-11 08:00:00 DRY_ORDER_000000179 19055 ASK 0.0262 FILLED  
-  + 2022-10-12 08:00:00 DRY_ORDER_000000180 19148 BID 0.0262 FILLED
- - Short position n°91 of 0.0258 BTC (rules: 10.0 % gain / 5.0 % loss) - Closed - Gains: 5.18322 USDT (1.05 %) - 10 Day line exit  
-  + 2022-10-13 08:00:00 DRY_ORDER_000000181 19365.5 ASK 0.0258 FILLED  
-  + 2022-10-14 08:00:00 DRY_ORDER_000000182 19164.6 BID 0.0258 FILLED
- - Short position n°92 of 0.0262 BTC (rules: 10.0 % gain / 5.0 % loss) - Closed - Gains: -5.0173 USDT (-0.99 %) - 10 Day line exit  
-  + 2022-10-15 08:00:00 DRY_ORDER_000000183 19060.4 ASK 0.0262 FILLED  
-  + 2022-10-16 08:00:00 DRY_ORDER_000000184 19251.9 BID 0.0262 FILLED
- - Long position n°93 of 0.0255 BTC (rules: 10.0 % gain / 5.0 % loss) - Closed - Gains: -10.80945 USDT (-2.17 %) - 10 Day line exit  
-  + 2022-10-17 08:00:00 DRY_ORDER_000000185 19540.6 BID 0.0255 FILLED  
-  + 2022-10-19 08:00:00 DRY_ORDER_000000186 19116.7 ASK 0.0255 FILLED
- - Short position n°94 of 0.0261 BTC (rules: 10.0 % gain / 5.0 % loss) - Closed - Gains: 2.1402 USDT (0.43 %) - 10 Day line exit  
-  + 2022-10-19 08:00:00 DRY_ORDER_000000187 19116.7 ASK 0.0261 FILLED  
-  + 2022-10-20 08:00:00 DRY_ORDER_000000188 19034.7 BID 0.0261 FILLED
- - Short position n°95 of 0.0261 BTC (rules: 10.0 % gain / 5.0 % loss) - Closed - Gains: -1.15362 USDT (-0.23 %) - 10 Day line exit  
-  + 2022-10-21 08:00:00 DRY_ORDER_000000189 19150.9 ASK 0.0261 FILLED  
-  + 2022-10-22 08:00:00 DRY_ORDER_000000190 19195.1 BID 0.0261 FILLED
 Position not closed:
  - Long position n°96 of 0.0255 BTC (rules: 10.0 % gain / 5.0 % loss) - Opened - Last gain calculated 5.39 %  
   + 2022-10-23 08:00:00 DRY_ORDER_000000191 19560.7 BID 0.0255 FILLED  
