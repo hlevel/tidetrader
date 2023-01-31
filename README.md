@@ -129,15 +129,6 @@ Account openPositions:
 Cumulated gains:
  - USDT : 177.54723 USDT
 Position closed:
- - Long position n°1 of 0.0122 BTC (rules: 10.0 % gain / 5.0 % loss) - Closed - Gains: 71.23336 USDT (14.25 %) - Take profit  
-  + 2022-03-21 08:00:00 DRY_ORDER_000000001 40982 BID 0.0122 FILLED  
-  + 2022-03-27 08:00:00 DRY_ORDER_000000002 46820.8 ASK 0.0122 FILLED
- - Long position n°2 of 0.0106 BTC (rules: 10.0 % gain / 5.0 % loss) - Closed - Gains: -10.87772 USDT (-2.19 %) - 10 Day line exit  
-  + 2022-03-27 08:00:00 DRY_ORDER_000000003 46820.8 BID 0.0106 FILLED  
-  + 2022-04-02 08:00:00 DRY_ORDER_000000004 45794.6 ASK 0.0106 FILLED
- - Short position n°3 of 0.0109 BTC (rules: 10.0 % gain / 5.0 % loss) - Closed - Gains: -6.51602 USDT (-1.29 %) - Reverse position  
-  + 2022-04-02 08:00:00 DRY_ORDER_000000005 45794.6 ASK 0.0109 FILLED  
-  + 2022-04-03 08:00:00 DRY_ORDER_000000006 46392.4 BID 0.0109 FILLED
  - Long position n°4 of 0.0107 BTC (rules: 10.0 % gain / 5.0 % loss) - Closed - Gains: -9.7905 USDT (-1.97 %) - 10 Day line exit  
   + 2022-04-03 08:00:00 DRY_ORDER_000000007 46392.4 BID 0.0107 FILLED  
   + 2022-04-05 08:00:00 DRY_ORDER_000000008 45477.4 ASK 0.0107 FILLED
