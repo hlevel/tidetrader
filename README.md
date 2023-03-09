@@ -5,6 +5,9 @@ tidetrader
 本项目是虚拟币量化交易机器人，扩展了xchange的源码支持币安交易所的现货、永续两种类型，基于 [https://github.com/cassandre-tech/cassandre-trading-bot](https://github.com/cassandre-tech/cassandre-trading-bot) 做的二次开发。
 ，在策略支持三种类型 基础策略、ta4j趋势策略、tv信号策略，在功能方面支持回测、仓位管理、图形化界面、追踪止赢止损、杠杆倍数。本项目没有现成的策略提供，只是一个交易量化平台项目，需要自己动手构建自己策略，所以适用对象是具有java开发编程能力并且熟悉货币市场情况的用户。
 
+#### 实盘预览
+http://b.ks1.top:9092/strategy/3
+
 #### 功能支持
 * binance现货
 * binance永续
